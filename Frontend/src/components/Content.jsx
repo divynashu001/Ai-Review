@@ -15,14 +15,14 @@ const Content = () => {
     `const hello = "world";\nconsole.log(hello);`
   );
   const [data, setData] = useState("");
-  useEffect(() => {
-    prism.highlightAll();
-  }, []);
+
 
   async function fetchData() {
     let response = await axios.post("https://ai-review.onrender.com/ai/get-review", {
       code,
-    });
+      headers: {
+        "Content-Type": "application/json",
+      }})
     setData(response.data);
     console.log(response.data);
   }
