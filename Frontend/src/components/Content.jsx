@@ -20,7 +20,7 @@ const Content = () => {
   }, []);
 
   async function fetchData() {
-    let response = await axios.post("http://localhost:3000/ai/get-review", {
+    let response = await axios.post("https://ai-review.onrender.com/ai/get-review", {
       code,
     });
     setData(response.data);
